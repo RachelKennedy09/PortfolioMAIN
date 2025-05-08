@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rachel's Nexopia Page</title>
+    <style>
+        /* body { THIS IS A GLITTERY PERMANENT BACKGROUND 
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            font-family: 'Comic Sans MS', cursive;
+            color: hotpink;
+            text-align: center;
+        } */
+
+        /* step 2 for diff backgrounds set your CSS */
+        /* this body is default body styling, backgroudn tiles repats, adds a smooth transition when colors or images change */
+        body {
+            background-repeat: repeat;
+            background-size: auto;
+            transition: background 0.5s ease, color 0.5s ease;
+            text-align: center;
+        }
+
+        body.glitter {
+            background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            background-color: #ffe0f7;
+            color: deeppink;
+        }
+
+        body.scene {
+            background-image: url('https://www.transparenttextures.com/patterns/skulls.png');
+            background-color: #fff0f5;
+            color: black;
+        }
+
+        body.dark {
+            background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+            background-color: #111;
+            color: #fff;
+        }
+
+        .profile-pic {
+            width: 150px;
+            border: 5px dotted purple;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        .bio {
+            margin: 20px;
+            font-size: 20px;
+            animation: sparkle 1s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            from {
+                color: hotpink;
+            }
+
+            to {
+                color: cyan;
+            }
+        }
+
+        .friends {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .friend {
+            width: 100px;
+            border: 2px solid lime;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>~* Rachel's Totally Awesome Page *~</h1>
+
+    <img class="profile-pic" src="./" alt="Profile pic">
+
+    <div class="bio">
+        Rawr XD 🌈✨<br>
+        Welcome 2 my Nexopia revival page!<br>
+        Mood: eating pizza in space 🍕🪐
+    </div>
+
+    <h2>My Top 5 Friends 💖</h2>
+    <div class="friends">
+        <div class="friend">💀 Skelly</div>
+        <div class="friend">🦄 Unicorn420</div>
+        <div class="friend">🌮 TacoVampire</div>
+        <div class="friend">🐱 CatraWrld</div>
+        <div class="friend">🔥 EmoToast</div>
+    </div>
+
+    <!-- step 1 for diff backgrounds -->
+    <h2>🌟 Choose Your Theme:</h2>
+    <!-- displays 3 buttons for the user to pick a theme
+when you click a button, it runs the function setThem() with a specific theme name -->
+    <button onclick="setTheme('glitter')">Glittercore ✨</button>
+    <button onclick="setTheme('scene')">Scene Kid 💀</button>
+    <button onclick="setTheme('dark')">Goth Mode 🌑</button>
+
+    <h2>Comment Wall 💌</h2>
+
+    <div style="margin: 20px;">
+        <input type="text" id="username" placeholder="Your Name">
+        <input type="text" id="commentText" placeholder="Say something funny...">
+        <button onclick="postComment()">Post</button>
+    </div>
+
+    <div id="commentWall" style="max-width: 600px; margin: 0 auto; text-align: left;">
+        <!-- Comments will show up here -->
+    </div>
+    <script>
+        // we define a function called postcomment() - this gets triggered when you clock
+        //the post button
+
+        function postComment() {
+            const name = document.getElementById("username").value; //grabs what you typed into the name box
+            const comment = document.getElementById("commentText").value; // grabs your comment
+            const wall = document.getElementById("commentWall"); //gets the empty div where all comments will go 
+            //we are saving the above into variables called name, comment, wall
+
+            //this checks if both fields are filled in 
+            if (name && comment) { // only post the comment if both name and comment arent empty
+                const newComment = document.createElement("div"); //this makes a brand new <div> element in memory. we go to style it and fill with your comment
+                newComment.style.border = "1px dashed hotpink";
+                newComment.style.padding = "10px";
+                newComment.style.marginTop = "10px";
+                newComment.innerHTML = `<strong>${name}</strong> says: ${comment}`;
+                // gave it a cute dashed border, padding and spacing, setting the inner HTML to show name says:'coment'
+                // Clear inputs
+
+
+                wall.prepend(newComment); // Add to top like classic walls so the newst post shows virst
+                document.getElementById("username").value = "";
+                document.getElementById("commentText").value = "";
+            } else {
+                alert("Type your name and something funny first!"); //alert if nothing is typed
+            }
+        }
+        //step 3 os tje javascript theme switcher 
+        function setTheme(theme) {
+            document.body.className = ''; // clear old theme
+            document.body.classList.add(theme); // apply new theme
+        }
+
+        // step 1 , create a list of fun emojis to use
+        const emojis = ["💖", "✨", "🌈", "💀", "🦄", "🕺", "🔥"];
+        //step 2, add a listener that runs everytime the mouse moves
+        document.addEventListener("mousemove", function (e) {
+            //step 3, create a new span element for the emoji
+            const sparkle = document.createElement("span");
+            //step 4, pick a random emoji and add it as a text
+            sparkle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            //step 5 style the emoji so it appears where the mouse is 
+            sparkle.style.position = "absolute";
+            sparkle.style.left = e.pageX + "px"; // x (left/right) position
+            sparkle.style.top = e.pageY + "px"; // Y (up/down position)
+            sparkle.style.fontSize = "20px";
+            sparkle.style.pointerEvents = "none"; //doesnt interfere with clicks
+            sparkle.style.userSelect = "none"; // cant highlight the emoji
+            //step 6 add a little flair - color and rotation
+            // Random color and slight spin
+            sparkle.style.color = getRandomColor(); // cal a function to get a color
+            sparkle.style.transform = `rotate(${Math.random() * 360}deg)`;
+            //step 7 add the emmoji to the page
+            document.body.appendChild(sparkle);
+            //step 8 remove the emoji after 800ms so the screen doesnt fill up
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        });
+        // helper funciton, pick a random color from a list
+        function getRandomColor() {
+            const colors = ["deeppink", "cyan", "lime", "violet", "hotpink", "#fffb00"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

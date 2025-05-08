@@ -1,0 +1,47 @@
+.header {
+
+    position: fixed;
+    /*keeps the header at the top when scrolling*/
+    display: flex;
+    /*makes elements inside the header align in a row*/
+    top: 0;
+    /*positions header at the top of the page*/
+    left: 0;
+    /*aligns the header to the left edge */
+    width: 100%;
+    /*ensures the header spans the full width of the page */
+    padding: 20px 10%;
+    /*adds space inside the header */
+    background-color: rgb(214, 151, 78);
+    /* background-color: transparent; */
+    justify-content: space-between;
+    /*spaces elements evenly inside */
+    align-items: center;
+    z-index: 100;
+    /*ensures the header stays above all elements */
+    /* need to learn more about indexes */
+    font-size: 2rem;
+}
+
+/* logo Rachel Kennedy  */
+/* automatically is fixed at top left of page */
+.logo {
+    color: rgb(34, 2, 34);
+    font-size: xx-large;
+    text-decoration: none;
+    /*removes underline from links*/
+    font-weight: 600;
+}
+
+
+/* Nav links */
+.navigation a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    /*adds spacing between menu links*/
+}
+
+.navigation a:hover {
+    color: rgb(34, 2, 34);
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mock ChatGPT</title>
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .chat-box {
+            width: 400px;
+            max-width: 90%;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-message {
+            margin: 10px 0;
+        }
+
+        .user {
+            text-align: right;
+            color: blue;
+        }
+
+        .bot {
+            text-align: left;
+            color: green;
+        }
+
+        .input-area {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Mock ChatGPT 🤖</h1>
+
+    <div class="chat-box" id="chatBox">
+        <!-- Messages appear here -->
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Type something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const responses = [
+            "Interesting question. Let me Google that for you.",
+            "You should take a nap and try again.",
+            "That's above my pay grade.",
+            "I'm just a humble pretend bot, but I say: yes!",
+            "42. Final answer.",
+            "Let me pretend to think... Okay! You got this!",
+            "Error 404: Brain not found.",
+            "Absolutely! Or maybe not. Who knows?",
+            "I'm running on coffee and vibes.",
+            "Hmm. Sounds sus."
+        ];
+
+        function sendMessage() {
+            const input = document.getElementById("userInput");
+            const chatBox = document.getElementById("chatBox");
+
+            const userText = input.value.trim();
+            if (userText === "") return;
+
+            // Display user message
+            const userMessage = document.createElement("div");
+            userMessage.className = "chat-message user";
+            userMessage.textContent = userText;
+            chatBox.appendChild(userMessage);
+
+            // Generate and display bot response
+            const botMessage = document.createElement("div");
+            botMessage.className = "chat-message bot";
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            botMessage.textContent = randomResponse;
+            chatBox.appendChild(botMessage);
+
+            // Scroll to bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Clear input
+            input.value = "";
+        }
+    </script>
+
+</body>
+
+</html>

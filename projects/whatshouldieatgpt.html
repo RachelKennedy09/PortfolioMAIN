@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What should I eat for dinner?</title>
+    <style>
+        body {
+            /* sets a playful font, gives background a warm color, 
+            centers all text, adds space around page content */
+            font-family: "Comic Sans MS", cursive;
+            background: #fff8dc;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* make the title big and bold */
+        h1 {
+            font-size: 3em;
+        }
+
+        /* the div where the dinner suggestion appears, adds space
+above it makes it large and gives it a red orange color */
+        #dinner {
+            margin-top: 30px;
+            font-size: 2em;
+            color: #ff6347;
+        }
+
+        /* styles the button to look friendly and clickable */
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ffa07a;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* changes the button color when you hover over it fo rmore interacivity */
+        button:hover {
+            background-color: #ff7f50;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Should I Eat for Dinner?</h1>
+    <button onclick="getDinner()">What should I eat?</button>
+    <!--  a button that calls the java script function getdinner() when clicked -->
+    <div id="dinner"></div> 
+    <!-- an empty bod where your dinner suggestion will appear -->
+
+    <script>
+        const dinners = [
+            "Tacos 🌮",
+            "Sushi 🍣",
+            "Spaghetti 🍝",
+            "Pizza 🍕",
+            "Grilled cheese 🧀",
+            "Curry 🍛",
+            "Salad 🥗",
+            "Burgers 🍔",
+            "Ramen 🍜",
+            "Breakfast for dinner 🥞"
+        ];
+// array of dinner options, each item is a string, and emojies make it extra fun
+        function getDinner() {
+            const randomIndex = Math.floor(Math.random() * dinners.length);
+            // picks a random number from 0 up to but not including the number dinner items
+            document.getElementById('dinner').textContent = "You should eat: " + dinners[randomIndex];
+        }
+        // }finds the div with the id dinner and sets its text to a message plus your random dinner
+    </script>
+</body>
+
+</html>

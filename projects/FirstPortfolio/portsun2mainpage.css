@@ -1,0 +1,283 @@
+/* general body styling */
+
+body {
+
+    /background-color: transparent;
+    /*backroound of whole html document */
+    color: rgb(88, 72, 72);
+    /*font color genreal text on html*/
+    /* cursor: crosshair; */
+    /* cursor: grab; */
+    font-size: 1.2rem;
+    /*rem for respnsive viewpoints, 1 em is 16px */
+    margin: 0;
+    /*removes default margin around the body */
+    padding: 0;
+    /*remove default padding around the body  */
+    text-align: center;
+    /*centers text on entire body */
+
+}
+
+/* list styling */
+.custom-list {
+    list-style: none;
+    /* Remove default bullets */
+    padding: 0;
+    display: flex;
+    /* Align items in a row */
+    gap: 20px;
+    /* Space between list items */
+    justify-content: center;
+    /* Center items horizontally */
+    flex-wrap: wrap;
+    /* Wrap items if screen is too small */
+}
+
+.custom-list li {
+    position: relative;
+    /*allows for the positioning of the icon */
+    padding-left: 40px;
+    /*creates space on the left of the icon */
+    font-size: 4rem;
+    /*responsive text*/
+    display: flex;
+    /*allows alignment of icon and the text */
+    align-items: center;
+    /*aligns the icon and text vrtically */
+    /*pay attention to the difference of these two */
+    text-align: left;
+    /*aligns the text to the left */
+    color: rgb(240, 224, 156);
+    /*text color*/
+    font-weight: bold;
+    text-shadow: 4px 4px 6px rgba(15, 11, 11, 0.5)
+}
+
+
+/* Icon Styling */
+/* Still learning this */
+.custom-list li::before {
+    content: "";
+    /* this creates a placeholder for the icon img*/
+    position: absolute;
+    /*positions the icon absolute within the list item*/
+    left: 0;
+    /*aligns to the left */
+    top: 50%;
+    /*center the icon vertically*/
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    /*ensures icon fills the space */
+    transform: translateY(-50%);
+    /* Centers the icon perfectly vertically */
+}
+
+/* Individual icons for the list items - can be found on google icons or other websites*/
+/* PNG creates a "sticky" and can be used to fomat sticker photos on html */
+.custom-list li:nth-child(1)::before {
+    background-image: url('images/html.jpeg.png');
+}
+
+.custom-list li:nth-child(2)::before {
+    background-image: url('images/css.jpeg.png');
+}
+
+.custom-list li:nth-child(3)::before {
+    background-image: url('images/learn.jpeg.png');
+}
+
+
+/* title page section styling ( Main heading )*/
+section.title-page {
+    margin: auto;
+    /*centers section horizontally */
+    align-items: center;
+    height: 100vh;
+    /*takes up whole viewportheight */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /*align items within the section
+       /* makes it so your entire page is a photo, no repeat allows it not to repeat */
+    background: url('./portfolio1.jpeg') no-repeat center center;
+    background-size: cover;
+    background-position: center contain;
+    object-fit: contain;
+
+}
+
+/* how to do 3 different image backgrounds but needs a lot more styling */
+/*position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('images/portfolio1.jpeg') top left / 50% 100% no-repeat,
+url('images/portfolio2.jpeg') top right / 50% 100% no-repeat,
+url('images/portfolio3.jpeg') center / cover no-repeat;
+z-index: -1; */
+
+/* content box styling */
+.content {
+
+    justify-content: center;
+    padding: 50px;
+    background-color: transparent;
+    border-radius: 30%;
+    border: 5px rgb(34, 2, 34) solid;
+    line-height: 1.5;
+    /*adjusts line height for better readibility*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: auto;
+    /*allows the content box to adjust automatically */
+
+
+}
+
+/* specifies so it doesnt target all of your headings */
+.content h1 {
+    /* I want this to be shadowed, or stand out more */
+    /* font-weight: normal; */
+    color: rgb(34, 2, 34);
+    /* background-color: rgb(247, 193, 193); */
+    text-shadow: rgb(153, 135, 135) 4px 3px 0px;
+    /* add a shawdo to text for pop effect */
+    margin-bottom: 10px;
+    /* adds space below the */
+    font-family: ibm;
+    /*custom font for card*/
+    text-align: center;
+    /*centers the heading*/
+}
+
+.content h4 {
+    color: rgb(250, 235, 235);
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+/* button box styling */
+.title-page .btn-box {
+    justify-content: space-between;
+    /*distributes space evenly between buttons */
+    align-items: center;
+    /*centers buttons vertically */
+    width: auto;
+    /*adjusts width automatically */
+    transition: box-shadow 0.3s ease;
+    /*adds a transition effect for the box shado */
+}
+
+/* button styling */
+.btn-box a {
+
+    margin: 10px;
+    /*adds space around each button */
+    padding: 5px;
+    text-decoration: none;
+    /*removes underline from the link */
+    background-color: rgb(130, 37, 32);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    /*adds a shadow to enhace button*/
+}
+
+/*button box hover effect */
+
+.btn-box a:hover {
+    background-color: rgb(34, 2, 34);
+    box-shadow: 0px 8px 25px rgba(31, 2, 2, 0.9);
+    /* Stronger shadow */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+    transition: all 0.3s ease-in-out;
+    /* Smooth animation */
+}
+
+
+
+/* Responsive Adjustments */
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+        /* Reduces font size for smaller screens */
+    }
+
+    .custom-list {
+        flex-direction: column;
+        /* Stacks list items vertically on smaller screens */
+        align-items: center;
+        /* Centers items vertically */
+    }
+
+    .custom-list li {
+        font-size: 1.2rem;
+        /* Adjusts font size of list items */
+        padding-left: 50px;
+        /* Adds more space for smaller screens */
+    }
+
+    .custom-list li::before {
+        width: 24px;
+        /* Reduces icon size */
+        height: 24px;
+        /* Reduces icon size */
+    }
+
+    .title-page h1 {
+        font-size: 2rem;
+        /* Adjusts heading size for smaller screens */
+    }
+
+    .content {
+        font-size: 1.5rem;
+        /* Reduces font size for smaller screens */
+        padding: 30px;
+        /* Reduces padding for smaller screens */
+    }
+}
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+    .custom-list {
+        flex-direction: row;
+        /* Aligns list items in a row for tablet-sized screens */
+        justify-content: space-around;
+        /* Spreads out the items evenly */
+    }
+
+    .custom-list li {
+        font-size: 1.5rem;
+        /* Adjusts font size for tablets */
+    }
+
+    .content {
+        font-size: 2rem;
+        /* Increases font size for tablets */
+    }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.2rem;
+        /* Larger font size for desktop */
+    }
+
+    .title-page h1 {
+        font-size: 3rem;
+        /* Larger font size for desktop headings */
+    }
+
+    .content {
+        font-size: 2.5rem;
+        /* Increases font size for larger screens */
+        padding: 50px;
+        /* Adds padding for desktop */
+    }
+}

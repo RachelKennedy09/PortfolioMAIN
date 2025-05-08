@@ -1,0 +1,397 @@
+/* universal reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* fixed navigation bar */
+
+
+
+
+/* body, sets a clean simple area to apply to entire body, mainly just text*/
+
+body {
+    Font-family: Sans-serif;
+    background-color: rgba(199, 170, 170) transparent;
+    color: pink;
+}
+
+/* header for the section that will apply to the navigation links and logo */
+
+header {
+    display: flex;
+    /* aligns items in a row in this case logo and nav bar */
+    justify-content: space-between;
+    /*space between the two classes in the section*/
+    align-items: center;
+    /* centers items vertically*/
+    padding: 1rem 2rem;
+    /* adds space inside the header above the content i.e logo and nav */
+    background-color: #f1ebeb;
+    /* add a color to your header/nav bar to separate from body */
+    color: rgb(10, 9, 9);
+    /* text color */
+    border-bottom: 5px solid rgb(75, 66, 66);
+    /* add border to bottom of nav bar for styling purposes */
+    position: sticky;
+    /* sticks to the top of the page for scrolling */
+    top: 0;
+    /* no space and makes it stick to top when scrolling */
+    z-index: 1000;
+    /* heeps the header above other elements */
+}
+
+/* logo, can be an image or letters with own styling hence the div class logo*/
+
+.logo {
+    font-size: 2rem;
+    /* logo text bigger and responsive */
+    font-weight: bold;
+    /* makes the text bold */
+    color: rgb(201, 53, 156);
+
+}
+
+/* fixed navigation bar */
+
+.navbar ul {
+
+    display: flex;
+    /* puts list items in a row instead of column*/
+    list-style: none;
+    /* removes bullet points */
+
+}
+
+.navbar ul li {
+    margin-left: 1rem;
+    /* adds space between menu items */
+
+}
+
+.navbar ul a {
+    text-decoration: none;
+    /* removes underline, cannot be done anywhere else as it has to be the anchor tag */
+
+    color: rgb(209, 140, 61);
+    /* removes ugly blue link style */
+    transition: color 03;
+    /* smooth transition effect for hover, hav eto make a styling for hover attribute */
+
+}
+
+.navbar ul li a:hover {
+    /* styling for a hover effect over nav bar, hover effect can be made for anything */
+
+    color: rgb(20, 189, 39)
+}
+
+
+/* main page with header and nav links ie welcome page*/
+
+.home-section {
+    height: 100vh;
+    /* makes it fill the entire screen */
+    display: flex;
+    flex-direction: column;
+    /* stacks heading and image veritcally */
+    justify-content: center;
+    align-items: center;
+    /* using flexbox to center the content and items both vertically and horizotally within the page */
+    text-align: center;
+    /* centers the text inside the elements*/
+    background-color: rgb(199, 170, 170);
+    border-bottom: 3px solid rgb(59, 50, 52);
+    color: black;
+    padding: 2rem;
+    /* padding to keep content within its page and space from overflow*/
+
+
+}
+
+.home-section h1 {
+    color: rgb(245, 237, 237);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+/* i had paddin top here to push the h1 under the header but it wasnt working properly */
+.home-img {
+
+    /* padding-top: 0 auto;
+    padding-bottom: 100px; */
+    max-width: 90%;
+    haight: auto;
+    display: block;
+    margin: auto;
+    /* cant figure out how to center on smaller screen */
+
+}
+
+.home-img img {
+
+    max-width: 100%;
+    height: auto;
+    /* keeps image proportional */
+    display: block;
+}
+
+/* about page */
+
+.about-section {
+    background: url('./autoimages/aboutme.img.jpeg');
+    width: 100%;
+    padding: 4rem 2rem;
+    /* Adds space inside the section so the content isn’t stuck to the edge */
+    background-size: cover;
+    /* Makes the mage cover the entire section while staying proportional */
+
+    background-attachment: fixed;
+    /* Optional: This adds a parallax-style effect where the background stays still as you scroll */
+    display: flex;
+    justify-content: center;
+    /* Moves your content box to the right side of the screen */
+    align-items: flex-start;
+    /* Aligns content to the top vertically */
+    min-height: 100vh;
+    /* Ensures the section takes at least the full screen height, but grows with the content if needed */
+}
+
+.about-text-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* stacks on smaller screens */
+}
+
+.about-video {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-video iframe {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    max-width: 800px;
+    border: 2px solid #444;
+    border-radius: 10px;
+    text-align: left;
+    color: black;
+    column-count: 1;
+    /* Can change to 2 for wider screens */
+    margin: auto;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+
+
+
+/* media so that it turns into columns when larger */
+@media screen and (max-width: 768px) {
+    .about-text {
+        column-count: 1;
+        /* Switch to one column for small screens */
+        max-width: 90%;
+        /* Let it take more space horizontally so it's easier to read */
+    }
+
+    .about-section {
+        justify-content: center;
+        /* Center the box on smaller screens instead of keeping it on the right */
+        padding: 2rem;
+        /* Reduce padding to save space on mobile */
+    }
+
+    .about-text-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .about section h1 {
+
+        padding-top: 100px;
+
+    }
+
+
+}
+
+/* tour dates */
+/* columns of Where, Date, Who */
+/* rows of data  */
+
+
+
+
+
+
+
+/* favourite songs */
+
+
+
+
+
+/* shop  */
+
+
+.mega_bundle_content {
+
+    background-color: rgb(241, 214, 237);
+
+}
+
+.shop-title {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+.shop-product {
+    display: grid;
+    /* creates the container into a grid layour */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: 1rem;
+    text-align: center;
+    /* makes sure the heading is centered with images */
+    padding-top: 1rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+
+}
+
+.product-card img {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+/* responsive for desktops 768 and up  */
+@media (min-width: 768px) {
+    .shop-product {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns on desktop rather than 2 */
+    }
+}
+
+.shop-product img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.buy-button {
+    background-color: rgb(123, 255, 0);
+    width: 50%;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: grab;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #c2185b;
+}
+
+/* media queires need to add for buttons*/
+
+/* contact secion body */
+.newsletter-section {
+    background-image: repeating-linear-gradient(45deg,
+            #f0f0f0,
+            #f0f0f0 10px,
+            #dcdcdc 10px,
+            #dcdcdc 20px);
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* newsletter section titles */
+.signup-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.signup-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
+    max-width: 500px;
+    padding: 0 1rem;
+}
+
+/* newsletters form  */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.newsletter-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    padding: 0.75rem 1rem;
+    background-color: #b25b84;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

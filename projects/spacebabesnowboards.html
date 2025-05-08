@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceBabe Snowboards 💖🛸</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to bottom right, #ffc0cb, #e0bbff);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: #a64ac9;
+        }
+
+        .hero {
+            padding: 50px 20px;
+        }
+
+        .product-img {
+            width: 250px;
+            border: 4px dashed white;
+            border-radius: 20px;
+            box-shadow: 0 0 25px #ff69b4;
+            margin: 20px auto;
+        }
+
+        /* GAVE ALL CALL TO ACTION BUTTONS THE SAME STYLE */
+        .cta-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            margin: 30px 10%;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .testimonial {
+            font-style: italic;
+            margin: 10px auto;
+            max-width: 600px;
+        }
+
+        /* LAYS OUT IMAGE CARDS SIDE BY SIDE, BUT WRAPS IF THE SCREEN IS NARROW */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-img {
+            width: 200px;
+            border-radius: 15px;
+            border: 3px solid #ff69b4;
+            box-shadow: 0 0 15px #ffc0cb;
+            transition: transform 0.2s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML BREAKDOWN. HTML IS WHAT GIVE YOUR SITE STRUCTURE - LIKE BUILDING A DOLLHOUSE.
+ THIS IS WHERE YOU DECIDE WHAT ROOMS OR SECTIONS EXIST AND WHAT GOES WHERE  -->
+
+
+    <!-- THE FIRST SECTION USERS SEE, 
+  YOUR USING A HEADING A PARAGRAH AN IMAGE AND A BUTTON  -->
+    <div class="hero">
+        <h1>SpaceBabe Snowboards 🌌✨</h1>
+        <p>Finally, a snowboard that launches you into space — in style 💅</p>
+        <img src="./images/image copy 3.png" alt="Girly space snowboard" class="product-img">
+        <br>
+        <button class="cta-button">💸 Only 5 Easy Payments of 3 Million Spaghetti Noodles 🍝</button>
+        <button onclick="toggleCuteMode()" class="cta-button">💖 Toggle CUTE MODE</button>
+    </div>
+    <!-- FEATURES SECTION, 
+ A LIST OF PLAYFUL FEATURES USING P ELEMENTS
+ EACH HAS A CLASS FEATURE SO THEY CAN BE STYLED THE SAME WAY WITH CSS -->
+    <div class="section">
+        <h2>🛷 What This Board Can Do</h2>
+        <p class="feature">✨ Reach orbit in 8.7 seconds flat</p>
+        <p class="feature">✨ Sparkles while doing 720º backflips</p>
+        <p class="feature">✨ Attracts friendly aliens with glitter trails</p>
+        <p class="feature">✨ Comes with a built-in selfie drone 📸</p>
+    </div>
+    <!-- TESTIMONIALS SECTION -->
+    <div class="section">
+        <h2>👩‍🚀 What Astronauts Are Saying:</h2>
+        <!-- ID=TESTIMONIALS LETS JAVA SCRIPT FIND THIS AND UPDATE THE TEXT -->
+        <p id="testimonial" class="testimonial">"Loading astronaut wisdom..."</p>
+        <!-- ONCLICK=NEWTESTIMONIAL() MEANS CLICKING THE BUTTON RUNS YOUR JAVASCRIPT FUNCTION THAT
+        SHOWS A RANDOM QUOTE -->
+        <button onclick="newTestimonial()" class="cta-button">🎲 Show Another Quote</button>
+    </div>
+    <!-- how to make the game, the canvas is hwere the game draws the
+       board, sparkles, and asteroids, the score will update live below -->
+    <!-- GAME SECTION -->
+    <div class="section" id="game-section">
+        <h2>🎮 Cosmic Rider Mini-Game</h2>
+        <p>Use ⬅️ and ➡️ to steer. Collect ✨, dodge 💥!</p>
+        <!-- CANVAS IS WHERE THE GAME LIVES LIKE A BLANK CHALKBOARD
+         YOU DRAW THE SNOWBOARDER, SPARKLES AND ASTEROIDS USING JAVASCRIPT
+         A SCORE DISPLAY SHOWS YOUR LIVE POINTS
+         RESTART BUTTON IS HIDDEN BY DEFAULT, WSHOW WHEN YOU CRASH -->
+        <canvas id="cosmicCanvas" width="400" height="600" style="background: black; border: 2px solid white;"></canvas>
+        <p id="scoreDisplay">Score: 0</p>
+        <button id="restartBtn" class="cta-button" onclick="restartGame()" style="display: none;">🔁 Play Again</button>
+
+    </div>
+    <!-- GALARY SECTION:  -->
+    <div class="section">
+        <h2>📸 SpaceBabe Sightings in the Galaxy</h2>
+        <div class="gallery">
+            <!-- EACH IMAGE HAS A CONSISTENT STYLE THANKS TO THE .GLARRY-IMG CLASS -->
+            <img src="./images/image copy.png" alt="Board doing tricks in space" class="gallery-img">
+            <img src="./images/image copy 2.png" alt="Board near Saturn" class="gallery-img">
+            <img src="./images/image copy 3.png" alt="Alien watching snowboarder" class="gallery-img">
+            <img src="./images/image copy 4.png" alt="Galaxy spin trick" class="gallery-img">
+        </div>
+    </div>
+
+
+
+
+    <!-- JAVA SCRIPT IS WHERE THE ACTION HAPPENS, LOGIC, ANIMATIONS, KEYBOARD CONTROLS -->
+    <script>
+        // MAKING A LIST (CALLED AN ARRAY) OF FUNNY QUOTES,
+        // EACH ITEM IN THE ARRAY IS A STRING
+
+        const testimonials = [
+            `"I did a cartwheel over Saturn and cried glitter. 10/10." – Starla`,
+            `"This board gave me emotional support and snacks." – Chad, probably`,
+            `"Aliens gave me a high five and a friendship bracelet." – Luna 🌙`,
+            `"I snowboarded past the moon and waved at Neil." – AstroBecky 🚀`,
+            `"I accidentally started a dance party on Jupiter." – DJ Comet`,
+            `"I screamed the whole way down. In a good way." – Commander Kiki`
+        ];
+        // THIS IS A FUNCTION THAT TURNS WHEN THE USER CLICK SHOW ANOTHER QUOTE
+        //MATH RANDOM GIVES A RANDOM NUMBER FROM 0 TO 1
+        //MATH FLOOR ROUNDS THAT NUMBER DOWN TO A WHOLE NUMBER
+        //TESTIMONIALS.LENGTH IS THE NUMBER OF QUOTES IN THE LIST
+        //SO RANDOM INDEX GIVES US A RANDOM SPOT ARRAY
+        //THEN WE GRAB THAT QUOTE AND UPDATE THE HTML (<P ID="TESTIMONIAL">) WIHT IT!
+        function newTestimonial() {
+            const randomIndex = Math.floor(Math.random() * testimonials.length);
+            document.getElementById("testimonial").textContent = testimonials[randomIndex];
+        }
+        // Load one immediately when page opens
+        window.onload = newTestimonial;
+
+
+        let isCuteMode = false; // a toggle switch to keep track of whether cute mode is on or off
+        //when the button is click; if its off, switch background text color and glow
+        //if its on reset to the original colors
+
+        function toggleCuteMode() {
+            const body = document.body;
+            const headings = document.querySelectorAll("h1, h2"); // targets your headings to give them sparkle
+
+            if (!isCuteMode) {
+                // Turn ON Cute Mode 🌸
+                body.style.background = "linear-gradient(to bottom right, #fff0f5, #ffe4e1)";
+                body.style.color = "#ff69b4";
+
+                headings.forEach(h => {
+                    h.style.textShadow = "0 0 10px #ffb6c1, 0 0 20px #ffc0cb";
+                });
+
+                isCuteMode = true;
+            } else {
+                // Turn OFF Cute Mode 🌌
+                body.style.background = "linear-gradient(to bottom right, #ffc0cb, #e0bbff)";
+                body.style.color = "#333";
+
+                headings.forEach(h => {
+                    h.style.textShadow = "none";
+                });
+
+                isCuteMode = false;
+            }
+        }
+
+
+
+
+
+        // java script for the game
+        let gameOver = false; //A FLAF THAT SAYS IF THE GAME HAS ENDED OR NOT
+        let animationId; //STORES THE ANIMATION LOOP, SO WE CAN STOP IT LATER
+
+
+        const canvas = document.getElementById("cosmicCanvas");// THIS FINDS THE CANVAS ELEMENT ON YOUR PAGE AND GIVES IT TO JAVASCRIPT
+        const ctx = canvas.getContext("2d"); //CTX IS THE CONTECT, BASICALLY YOUR PAINTBRUSH TO DRAW STUFF ON THE CANVAS
+
+        //CREATING AN OBJECT TO REPRESENT YOUR SNOWBOARDER
+        const player = {
+            x: 180, //X AND Y ARE THEIR POSITION ON THE CANVAS
+            y: 500,
+            width: 60,
+            height: 60,
+            emoji: "🏂", //WHAT WE ARE DRAWING
+            speed: 5 //HOW FAST THEY MOVE LEFT/RIGHT WHEN KEYS ARE PRESSED
+        };
+        //SPARKLES AND ATEROIDS ARE BOTH ARRAYS THAT WILL HOLD THE FALLING ITEMS
+        let sparkles = [];
+        let asteroids = [];
+        let score = 0; //KEEPS TRACK OF HOW MANY SPARKLES THE PLAYER COLLECTS
+
+        // Create sparkle or asteroid randomly
+        //This function creates either a sparkle or an asteroid
+        // It chooses a random x position across the width of the canvas
+        // Then randomly decides if it's a sparkle (✨) or an asteroid (💥)
+        // It starts at the top(y: 0) and falls down during the game
+        function spawnItem() {
+            const x = Math.random() * (canvas.width - 30);
+            const isSparkle = Math.random() > 0.5;
+            if (isSparkle) {
+                sparkles.push({ x, y: 0 });
+            } else {
+                asteroids.push({ x, y: 0 });
+            }
+        }
+
+        // SETts the font size
+        // Then draws the snowboard emoji at the player's current position
+        function drawPlayer() {
+            ctx.font = "30px serif";
+            ctx.fillText(player.emoji, player.x, player.y);
+        }
+
+
+        //Goes through each item in the sparkles and asteroids arrays
+        // Draws them at their current position on the canvas
+        function drawItems() {
+            ctx.font = "24px serif";
+            sparkles.forEach(s => ctx.fillText("✨", s.x, s.y));
+            asteroids.forEach(a => ctx.fillText("💥", a.x, a.y));
+        }
+
+        //This makes all sparkles and asteroids move downward each frame
+        // Sparkles fall slower than asteroids!
+        function moveItems() {
+            sparkles.forEach(s => s.y += 3);
+            asteroids.forEach(a => a.y += 4);
+        }
+
+        //This checks if a sparkle is touching the snowboarder
+        //If it is: you get 1 point and it's removed
+        //If not: keep it unless it falls off the screen
+        function detectCollisions() {
+            // Check sparkles
+            sparkles = sparkles.filter(s => {
+                if (
+                    s.y > player.y - 20 && s.y < player.y + 30 &&
+                    s.x > player.x - 20 && s.x < player.x + 30
+                ) {
+                    score++;
+                    document.getElementById("scoreDisplay").textContent = "Score: " + score;
+                    return false;
+                }
+                return s.y < canvas.height;
+            });
+
+            // Check asteroids
+            //Stop the animation, show score, and display the “Play Again” button
+            for (let a of asteroids) {
+                if (
+                    a.y > player.y - 20 && a.y < player.y + 30 &&
+                    a.x > player.x - 20 && a.x < player.x + 30
+                ) {
+                    cancelAnimationFrame(animationId);
+                    document.getElementById("scoreDisplay").textContent = "💥 You crashed! Final Score: " + score;
+                    document.getElementById("restartBtn").style.display = "inline-block";
+                    gameOver = true;
+
+                }
+            }
+            // Remove off-screen asteroids
+            asteroids = asteroids.filter(a => a.y < canvas.height);
+        }
+
+        //This tracks whether the left/right arrow keys are being pressed
+        let keys = {};
+        document.addEventListener("keydown", e => keys[e.key] = true);
+        document.addEventListener("keyup", e => keys[e.key] = false);
+
+
+        //If the left arrow is pressed, move the snowboarder left
+        //If the right arrow is pressed, move right
+        //Keep player within canvas bounds
+        function updatePlayer() {
+            if (keys["ArrowLeft"] && player.x > 0) player.x -= player.speed;
+            if (keys["ArrowRight"] && player.x < canvas.width - player.width) player.x += player.speed;
+        }
+
+        //This is the core loop of your game
+        //Runs 60 times a second
+        //Keeps everything moving and updating
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawItems();
+            moveItems();
+            updatePlayer();
+            detectCollisions();
+            if (!gameOver) {
+                animationId = requestAnimationFrame(gameLoop);
+            }
+        }
+        // Called when the player clicks the “Play Again” button
+        //Resets everything by reloading the page
+        ; function restartGame() {
+            location.reload();
+        }
+
+
+
+        setInterval(spawnItem, 800); // spawn new stuff every 0.8s
+        gameLoop();
+
+
+
+    </script>
+
+</body>
+
+</html>

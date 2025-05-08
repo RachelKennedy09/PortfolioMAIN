@@ -1,0 +1,144 @@
+<!-- this generator will help me practice variables, arrays, functions, random numbers, DOM
+manipulation (changing text on my site) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceBabe Fortune Orb</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to bottom right, #ffc0cb, #dbc6ec);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* button styling  */
+
+        .cta-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* section styling  */
+        .section {
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            margin: 30px 10%;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- starting with the html first -->
+    <!-- what am i doing? i am adding a heading, a placeholder fo rhte fortune, <p> and a button
+    that will trigger the javascript function when click  -->
+    <!-- step 1 -->
+    <div id="fortuneBox" class="section">
+        <p id="fortuneText">Click below to receive your cosmic fortune! </p>
+        <!-- here we added tex that will trigger the java script-->
+        <p id="timestampText"></p> <!--this is where we will show the time -->
+        <button onclick="tellFortune()" class="cta-button"> 🥠 Get My fortune </button>
+        <!-- id="fortuneText" lets us target this text in JavaScript -->
+        <!-- onclick="tellFortue()" means when the button is clicked, it runs a function named tellFortune()down in script -->
+    </div>
+
+
+    <script>
+
+        // here will add the javascript to step 1
+        //I am writing a function tht 1. Stores a list of possible fortunes, 2. randomly picks one 3. displays it in oyur <p> tag from step 1
+
+        function tellFortune() {
+            // step 1 making a list of fortune options using an array
+            //Step 2 of upgrading the page to change background per fortune. I add labels aka type:romance
+            const fortunes = [
+                { text: "🌈 You will land a 900° spin and impress an alien prince.", type: "romance" },
+                { text: "👽 Today you will be abducted — for a free makeover.", type: "funny" },
+                { text: "🌟 A cosmic glitter storm is coming. Embrace the sparkle.", type: "magical" },
+                { text: "🛸 A UFO will ask you to join its intergalactic fashion team.", type: "career" },
+                { text: "💖 Your snowboard will gain sentience and become your BFF.", type: "weird" },
+                { text: "🌌 You are the main character today. The galaxy agrees.", type: "magical" },
+            ];
+
+            //step 2 choose a random number from 0 to (number of furtunes - 1)
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+
+            //step 3: Use that number to pick a fortune from the array 
+
+            const randomFortune = fortunes[randomIndex];
+
+            //step 4: update the text in <p> tag with the random fortune
+            document.getElementById("fortuneText").textContent = randomFortune.text; /*step 2 of upgrading i added.text so it finds that id*/
+            document.getElementById("fortuneBox").style.boxShadow = "0 0 40px #ffb6c1"; //finds the fortune box and adds a shadow
+
+            /* this is a common built in tool in javascript. 
+                it finds an html element so it can do something with it in JS */
+            //it is part fo the DOM, it says hey browser please findthe lement that has this pecific id. 
+
+            // (step 2 of upgrading..changing the background color basded on the fortunes type)
+            const body = document.body;  //when writing document.body in JS youre telling JS to change thewhole body
+
+            if (randomFortune.type === "romance") {//saying if the random fortune is text romance then do this, or else if, and lasty defult is else
+                body.style.background = "linear-gradient(to right, #ffe0f0, #ffc0cb)"; // you can do body.style.color for text
+                //body.style.textshadow .... lots of options 
+            } else if (randomFortune.type === "funny") {
+                body.style.background = "linear-gradient(to right, #fffacd, #f0e68c)";
+            } else if (randomFortune.type === "magical") {
+                body.style.background = "linear-gradient(to right, #e0bbff, #d8bfd8)";
+            } else if (randomFortune.type === "career") {
+                body.style.background = "linear-gradient(to right, #c0e0ff, #a0c4ff)";
+            } else if (randomFortune.type === "weird") {
+                body.style.background = "linear-gradient(to right, #b0f2b6, #caffbf)";
+            } else {
+                body.style.background = "pink"; // Default backup
+            }
+            const now = new Date(); // This gets the current date and time
+            const formattedTime = now.toLocaleTimeString(); // This turns it into a human-readable time
+            document.getElementById("timestampText").textContent = "✨ Told at: " + formattedTime;
+
+            /* What I just learned: const fortunes = [] this is an array of fortunes well choose from
+            Math.random() gives a random decimal between 0 and 1
+            Math.floor()Rounds the number down to a whole number
+            fortunes[randomindex] grabs on item from the list based on the number we got
+            document get elemdn by id text contant = finds the elemend with that Id and changes its text */
+        }
+
+        //step 3 of urgrading the generatory to look like a website now and adding style
+        document.addEventListener("DOMContentLoaded", function () { //this waits until the page has fully loaded before running the code
+            // step 1 is to create a new <h1> tag
+            const heading = document.createElement("h1"); //makes a brand new <h1> tag (like in HTML, but created by JS)
+            //step 2: Give it some text
+            heading.textContent = "🔮The SpaceBabe Fortune Orb"; // puts text inside that new heading
+            //step 3: Add some style to it 
+            heading.style.color = "ff69b4"; //hot pink text, uses JS to add CSS styles
+            heading.style.textShadow = "0 0 10 px #ffc0cb, 0 0 20px #ff69b4"; //glowy sparkle text
+            heading.style.marginTop = "40px";
+
+            //step 4, put it at the top of the page
+            document.body.prepend(heading);
+        });
+    </script>
+
+</body>
+
+</html>

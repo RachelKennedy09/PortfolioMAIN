@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachel Kennedy</title>
+    <!-- normalize for all desktops !-/-->
+    <link href="./normalize.css" rel="stylesheet" />
+    <!-- <link href="./portfoliomain.css" rel="stylesheet" /> This is one css with all the styling on it -->
+    <!-- below are the styles separated up into diff stylesheets -->
+    <link href="./portsun1header.css" rel="stylesheet">
+    <link href="./portsun2mainpage.css" rel="stylesheet">
+    <link href="./portsun3pages.css" rel="stylesheet">
+    <link href="./universalcss.css" rel="stylesheet">
+    <!-- below is the link i used for the icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+    <!-- fonts I used -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap"
+        rel="stylesheet" />
+    <!-- Link to W3.CSS for styling, my styling got a bit messy with the fonts :/ -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="./universalcss.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="./script.js" rel="hamburger">
+</head>
+
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">RLK.</a>
+        <nav class="navigation">
+            <social class="socials">
+                <!-- i got the image from boxidon and i put my personal urls in the a href tag -->
+                <a href="https://www.linkedin.com/in/rachelkennedy09/"><i class='bx bxl-linkedin-square'></i>
+                </a>
+                <a href="https://www.facebook.com/rachel.kennedy.9887117/"><i class='bx bxl-facebook-square'></i></a>
+            </social>
+
+            <a href="#Home">Home</a>
+            <a href="#aboutme">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+    </header>
+
+    <section class="title-page">
+        <div class="content">
+            <h1>RACHEL KENNEDY</h1>
+            <ul class="custom-list">
+                <ul>
+                    <li>Software Student</li>
+                    <li>Web Designer</li>
+                    <li>Lifelong Learner</li>
+
+                    <!--button for downloading resume  -->
+                    <div class="btn-box">
+                        <a href="softwareresume.docx" download class="btn">Resume</a>
+
+                    </div>
+        </div>
+        </ul-class>
+    </section>
+
+    <!-- here we will begin about me page with a brief background
+  -->
+    <section id="aboutme">
+        <div class="content-about">
+            <h1>ABOUT RLK</h1>
+            <p> Hi! My name is Rachel Kennedy, but you can call me Rach. I am
+                an ever-learning student in the industry of software-development. My
+                passion is website design, and learning new tricks in the industry.
+                My career focus is back end development. <br>I excel in
+                <strong>HTML, CSS, Visual Studio Coding and much more.</br> </strong>
+            </p>
+
+            <img src="./aboutme.jpeg">
+
+            <h2> I AM ...</h2>
+            <div class="skillslist">
+                <p>
+
+                <ul>
+                    <li>Self directed, focused, and possess a keen eye for detail</li>
+                    <li>A Strong team-player, I work well with both a team and individually</li>
+                    <li>A Creative problem solver; I work well under pressure and fast paced environments</li>
+                    <li> I Excels in the organization and completion of delegated projects</li>
+
+                </ul>
+            </div>
+
+            </p>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- portfolio -->
+
+    <section id="portfolio">
+        <div class="portfolio">
+            <h1>STUDENT PORTFOLIO</h1>
+
+            <div class="btnport">
+                <a href="/portfolio/Audiobiography/audio_1.html" class="btn"> Autobiograpahy</a>
+                <p>My first amateur project</p>
+                <a href="/portfolio/portfoliomountaintheme.html" class="btn">Portfolio#2</a>
+                <p> This is a portoflio I am practicing more on to try and create different layouts</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--  I found out we need something called PHP for the messages to be sent directly to my email..assuming more java script knowledge -->
+    <section id="contact">
+        <div class="w3-container w3-padding-32">
+            <h2 class="w3-center">Contact RLK</h2>
+            <form action="/action_page.php" target="_blank">
+                <!-- Name Input -->
+                <p>
+                    <input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name">
+                </p>
+                <!-- Email Input -->
+                <p>
+                    <input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required
+                        name="Email">
+                </p>
+                <!-- Subject Input -->
+                <p>
+                    <input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required
+                        name="Subject">
+                </p>
+                <!-- Message Input -->
+                <p>
+                    <textarea class="w3-input w3-padding-16 w3-border" placeholder="Message" required name="Message"
+                        rows="4"></textarea>
+                </p>
+                <!-- Submit Button -->
+                <p>
+                    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    </button>
+                </p>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
