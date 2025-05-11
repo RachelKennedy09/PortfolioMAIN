@@ -11,7 +11,7 @@ event.preventDefault();
 
 const name = document.getElementById("name").value;
 
-alert(`Thanks for reaching out, ${name}! I’ll get back to you soon.`);
+alert(`Thanks for reaching out, ${name}! I'll get back to you soon.`);
 contactForm.reset();
 }
 
