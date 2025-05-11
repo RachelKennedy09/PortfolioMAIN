@@ -25,6 +25,8 @@ Proceed to the portfolio page, and open any project I have made, but focus on th
 ---
 ## Features
 - Book a service using a form
+- Choose who you want to hire
+- See who is available
 - Apply to join the team with a personal photo upload
 - Styled using CSS with a clean, earthy mountain theme
 - Mobile responsive layout
@@ -33,7 +35,6 @@ Proceed to the portfolio page, and open any project I have made, but focus on th
 - Parallax hero section
 - Smooth navigation menu with scroll animations
 
-- 
 ## Built With
 
 - **HTML, CSS, and JavaScript**
@@ -50,6 +51,7 @@ Proceed to the portfolio page, and open any project I have made, but focus on th
 - Conditional logic
 - Responsive design
 - Beginner-level data handling
+- Advanced CSS styling like parallax and modals.
 
 ---
 ## Wins
