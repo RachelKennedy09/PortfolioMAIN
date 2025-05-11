@@ -8,7 +8,7 @@ This folder contains a multi-page website called **Rocky Mountain Tails**, a fic
 
 ##  To View the Full Portfolio
 
-To explore the full portfolio (which includes this project and others), open the **'portfolioMAIN' folder -> 'Portfoliosite' folder ** and **click `Enter`** — that will take you to the main page showcasing all my work.
+To explore the full portfolio (which includes this project and others), open the **'portfolioMAIN' folder (which you should already be on) -> 'Portfoliosite' folder ** and **click `Enter`** — that will take you to the main page showcasing all my work.
 Proceed to the portfolio page, and open any project I have made, but focus on the Dog Walking Website as my project to be graded on.
 
 ## How to use 
@@ -63,6 +63,7 @@ Proceed to the portfolio page, and open any project I have made, but focus on th
 ## Challenges
 
 - Took some time to understand when and where to declare variables
+- Understanding Github while creating useless folders and losing organizational plan
 - Figuring out how to structure conditional form logic with radios and dropdowns
 - Learning how to make the booking message respond to different user choices
 - Getting images and layout to respond correctly across screen sizes.
