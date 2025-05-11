@@ -1,8 +1,3 @@
-##  To View the Full Portfolio
-
-To explore the full portfolio (which includes this project and others), open the **'portfoliosite' folder** and **click `Enter`** — that will take you to the main page showcasing all my work.
-Proceed to the portfolio page, and open any project I have made, but focus on the Dog Walking Website as my project to be graded on.
-
 # Rocky Mountain Tails — Dog Walking Website (assignment 2 Java Script)
 
 Hi there! This is a portfolio project as well as the my assignment #2 project to be graded on that I built as part of my web development learning journey with the help from my professor, codeacademy, webMD, and chat gpt.
